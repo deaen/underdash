@@ -1,0 +1,22 @@
+{
+	"geode": "3.1.1",
+	"gd": {
+		"win": "2.206",
+		"android": "2.206",
+		"mac": "2.206",
+		"ios": "2.206"
+	},
+	"id": "deaen.underdash",
+	"name": "underdash",
+	"version": "v1.0.0",
+	"developer": "deaen",
+	"description": "undrtale",
+	"resources": {
+		"files": [
+			"resources/*"
+		],
+		"sprites": [
+            "resources/*.png"
+        ]
+	}
+}
