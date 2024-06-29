@@ -1,7 +1,6 @@
 # UNDERDASH
 
-## makes the <cg>GD Menu</cg> look straight outta Undertale!* 
-##### **<cy>(almost)</cy>*
+## make the <cg>GD Menu</cg> look straight outta <cj>Undertale!</cj>
 
 
 #### You can go back to the normal main menu by pressing the <cr>**More**</cr> button (mainly to access buttons not avaliable in the menu).

@@ -41,7 +41,7 @@ bool utMenuBackground::init() {
     playerSpr->setZOrder(-99);
     this->addChild(playerSpr);
 
-    std::string cLabel = "GEOMETRY DASH V"+ Loader::get() -> getGameVersion() +" (C) RobTopGames 2013-" + std::format("{:%Y}", std::chrono::system_clock::now());
+    std::string cLabel = "GEOMETRY DASH V"+ Loader::get() -> getGameVersion() +" (C) RobTopGames 2013-2024";
     auto copyrightLabel = CCLabelBMFont::create(cLabel.c_str(), "cryptFont.fnt"_spr);
     copyrightLabel->setPosition({ winSize.width / 2, winSize.height / 50});
     copyrightLabel->setZOrder(-100);
