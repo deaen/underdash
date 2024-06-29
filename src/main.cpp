@@ -66,7 +66,8 @@ class $modify(MyMenuLayer, MenuLayer) {
             ->setGrowCrossAxis(true)
             ->setCrossAxisOverflow(false)
         );
-        menu->setContentSize(CCSizeFromString("{200.0,100.0}"));
+        auto menuSize = CCSize(200, 100);
+        menu->setContentSize(menuSize);
         this->addChild(menu);
 
         auto utIconKitButton = CCMenuItemSpriteExtra::create(CCLabelBMFont::create("Icon Kit", "utFont.fnt"_spr), this, menu_selector(MenuLayer::onGarage));
@@ -98,7 +99,7 @@ class $modify(MyMenuLayer, MenuLayer) {
             ->setGap(60.f)
             ->setAxisAlignment(AxisAlignment::Center)
             ->setAxis(Axis::Row)
-            ->setDefaultScaleLimits(0.f, 0.8f)
+            ->setDefaultScaleLimits(0.f, 0.9f)
         );
         extraMenu->setID("ut-extra-menu"_spr);
         extraMenu->setPositionY(winSize.height - 90.f);
