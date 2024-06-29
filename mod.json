@@ -10,7 +10,15 @@
 	"name": "underdash",
 	"version": "v1.0.0",
 	"developer": "deaen",
-	"description": "undrtale",
+	"description": "make the GD menu look straight outta undertale",
+	"links": {
+		"source": "https://github.com/deaen/underdash",
+		"homepage": "https://x.com/ddeaen"
+	},
+	"tags": [
+		"interface",
+		"offline"
+	],
 	"resources": {
 		"files": [
 			"resources/*"
