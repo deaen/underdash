@@ -6,6 +6,7 @@
 using namespace geode::prelude;
 
 bool showUtMenu = true;
+bool playSfx;
 class $modify(MyMenuLayer, MenuLayer) {
 
     bool init() {
@@ -14,7 +15,8 @@ class $modify(MyMenuLayer, MenuLayer) {
         }
 
         createUtMenu();
-
+        playSfx = true;
+        
         return true;
     }
 
@@ -174,6 +176,8 @@ class $modify(LoadingLayer) {
         utLogo->setScale(1.5);
         utLogo->setPosition({ winSize.width / 2, winSize.height / 2 });
         this->addChild(utLogo);
+
+        if (!playSfx) { FMODAudioEngine::sharedEngine()->playEffect("loading_sfx.ogg"_spr); playSfx = true; }
 
         if (this->getChildByIDRecursive("geode-small-label") != nullptr) {
             auto geodeLabel = typeinfo_cast<CCLabelBMFont*>(this->getChildByIDRecursive("geode-small-label"));
