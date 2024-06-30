@@ -8,7 +8,7 @@ public:
     static utMenuBackground* create();
 private:
     bool init();
-    int iconIndex(IconType type);
-    SimplePlayer* curPlayer();
-
+    int selectedGamemode(IconType type);
+    SimplePlayer* curPlayer(int iconIndex, IconType gamemode);
+    void createIcons(CCLayer* layer);
 };

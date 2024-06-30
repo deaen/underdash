@@ -8,7 +8,7 @@
 	},
 	"id": "deaen.underdash",
 	"name": "underdash",
-	"version": "v1.0.0",
+	"version": "v1.1.0",
 	"developer": "deaen",
 	"description": "make the GD menu look straight outta undertale",
 	"links": {
@@ -19,11 +19,76 @@
 		"interface",
 		"offline"
 	],
+	"early-load": true,
 	"resources": {
 		"files": [
 			"resources/*.ogg",
 			"resources/*.fnt",
 			"resources/*.png"
 		]
+	},
+	"settings": {
+		"activeIcon": {
+			"name": "Only show active Icon",
+			"description": "Whether to only show your selected Icon in the menu (Not compatible with the other options)",
+			"type": "bool",
+            "default": true
+		},
+		"iconCube": {
+			"name": "Show cube",
+			"description": "Whether to add your cube to the menu icons.",
+			"type": "bool",
+            "default": false
+		},
+		"iconShip": {
+			"name": "Show ship",
+			"description": "Whether to add your ship to the menu icons.",
+			"type": "bool",
+            "default": false
+		},"iconBall": {
+			"name": "Show ball",
+			"description": "Whether to add your ball to the menu icons.",
+			"type": "bool",
+            "default": false
+		},"iconUfo": {
+			"name": "Show ufo",
+			"description": "Whether to add your ufo to the menu icons.",
+			"type": "bool",
+            "default": false
+		},"iconWave": {
+			"name": "Show wave",
+			"description": "Whether to add your wave to the menu icons.",
+			"type": "bool",
+            "default": false
+		},"iconRobot": {
+			"name": "Show robot",
+			"description": "Whether to add your robot to the menu icons.",
+			"type": "bool",
+            "default": false
+		},"iconSpider": {
+			"name": "Show spider",
+			"description": "Whether to add your spider to the menu icons.",
+			"type": "bool",
+            "default": false
+		},
+		"iconSwing": {
+			"name": "Show swing",
+			"description": "Whether to add your swing to the menu icons.",
+			"type": "bool",
+            "default": false
+		},
+		"iconJetpack": {
+			"name": "Show jetpack",
+			"description": "Whether to add your jetpack to the menu icons.",
+			"type": "bool",
+            "default": false
+		},
+        "loadingBar": {
+            "name": "Show loading bar",
+            "description": "Whether to show the loading bar in the loading screen or not.",
+            "type": "bool",
+            "default": false
+        }
+
 	}
 }

@@ -1,6 +1,7 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/MenuLayer.hpp>
 #include <Geode/modify/GameManager.hpp>
+#include <Geode/modify/LoadingLayer.hpp>
 #include "ui/utMenuBackground.hpp"
 using namespace geode::prelude;
 
@@ -35,7 +36,7 @@ class $modify(MyMenuLayer, MenuLayer) {
         CCObject* obj;
         CCARRAY_FOREACH(this -> getChildren(), obj) {
             auto item = typeinfo_cast<CCNode*>(obj);
-            if (item != nullptr && item -> getID() != "FLAlertLayer") item->setVisible(false);
+            if (item != nullptr && item->getID() != "FLAlertLayer") item->setVisible(false);
         }
         if (this->getChildByID("UtMenuBackground"_spr) != nullptr) this->getChildByID("UtMenuBackground"_spr)->setVisible(true);
         if (this->getChildByID("ut-item-menu"_spr) != nullptr) this->getChildByID("ut-item-menu"_spr)->setVisible(true);
@@ -91,7 +92,7 @@ class $modify(MyMenuLayer, MenuLayer) {
         menu->addChild(utMoreButton);
 
         menu->updateLayout();
-        menu->setPosition({winSize.width / 2, winSize.height / 2});
+        menu->setPosition({ winSize.width / 2, winSize.height / 2 });
 
         auto extraMenu = CCMenu::create();
         extraMenu->setLayout(
@@ -109,11 +110,19 @@ class $modify(MyMenuLayer, MenuLayer) {
         name->setID("ut-player-button"_spr);
         extraMenu->addChild(name);
 
-        auto geodeSelector = (this->getChildByIDRecursive("geode.loader/geode-button") != nullptr && typeinfo_cast<CCMenuItem*>(this->getChildByIDRecursive("geode.loader/geode-button")) != nullptr) ? typeinfo_cast<CCMenuItem*>(this->getChildByIDRecursive("geode.loader/geode-button"))->m_pfnSelector : nullptr;
-        auto geode = CCMenuItemSpriteExtra::create(CCLabelBMFont::create("Geode", "utFont.fnt"_spr), this, geodeSelector);
-        geode->setID("ut-geode-button"_spr);
-        extraMenu->addChild(geode);
+        if ((this->getChildByIDRecursive("geode.loader/geode-button") != nullptr && typeinfo_cast<CCMenuItem*>(this->getChildByIDRecursive("geode.loader/geode-button")) != nullptr)) {
+            auto geodeSelector = typeinfo_cast<CCMenuItem*>(this->getChildByIDRecursive("geode.loader/geode-button"))->m_pfnSelector;
+            auto geode = CCMenuItemSpriteExtra::create(CCLabelBMFont::create("Geode", "utFont.fnt"_spr), this, geodeSelector);
+            geode->setID("ut-geode-button"_spr);
+            extraMenu->addChild(geode);
+        }
 
+        if (this->getChildByIDRecursive("dankmeme.globed2/main-menu-button") != nullptr && typeinfo_cast<CCMenuItem*>(this->getChildByIDRecursive("dankmeme.globed2/main-menu-button")) != nullptr) {
+            auto globedSelector = typeinfo_cast<CCMenuItem*>(this->getChildByIDRecursive("dankmeme.globed2/main-menu-button"))->m_pfnSelector;
+            auto globed = CCMenuItemSpriteExtra::create(CCLabelBMFont::create("Globed", "utFont.fnt"_spr), this, globedSelector);
+            globed->setID("ut-globed-button"_spr);
+            extraMenu->addChild(globed);
+        }
         auto daily = CCMenuItemSpriteExtra::create(CCLabelBMFont::create("Daily", "utFont.fnt"_spr), this, menu_selector(MenuLayer::onDaily));
         daily->setID("ut-daily-button"_spr);
         extraMenu->addChild(daily);
@@ -128,7 +137,54 @@ class $modify(GameManager) {
     void fadeInMenuMusic() {
         FMODAudioEngine::sharedEngine()->playMusic("menu.ogg"_spr, true, 0.0f, 0);
     }
-    void playMenuMusic(){
-       FMODAudioEngine::sharedEngine()->playMusic("menu.ogg"_spr, true, 0.0f, 0);
+    void playMenuMusic() {
+        FMODAudioEngine::sharedEngine()->playMusic("menu.ogg"_spr, true, 0.0f, 0);
     }
 };
+
+class $modify(LoadingLayer) {
+
+    bool init(bool p0) {
+        if (!LoadingLayer::init(p0)) return false;
+
+        auto barBool = Mod::get()->getSettingValue<bool>("loadingBar");
+
+        if (!barBool) {
+            CCObject* obj;
+            CCARRAY_FOREACH(this -> getChildren(), obj) {
+                auto item = typeinfo_cast<CCNode*>(obj);
+                if (item != nullptr) item->setVisible(false);
+            }
+        }
+        else {
+            CCObject* obj;
+            CCARRAY_FOREACH(this -> getChildren(), obj) {
+                auto item = typeinfo_cast<CCNode*>(obj);
+                if (item != nullptr && item->getID() != "progress-slider" && item->getID() != "geode-small-label" && item->getID() != "geode-small-label-2") item->setVisible(false);
+            }
+        }
+        return true;
+    }
+
+    void loadAssets() {
+        LoadingLayer::loadAssets();
+
+        auto utLogo = CCSprite::create("loading_logo.png"_spr);
+        auto winSize = CCDirector::sharedDirector()->getWinSize();
+        utLogo->setScale(1.5);
+        utLogo->setPosition({ winSize.width / 2, winSize.height / 2 });
+        this->addChild(utLogo);
+
+        if (this->getChildByIDRecursive("geode-small-label") != nullptr) {
+            auto geodeLabel = typeinfo_cast<CCLabelBMFont*>(this->getChildByIDRecursive("geode-small-label"));
+            geodeLabel->setFntFile("utFont.fnt"_spr);
+            geodeLabel->setVisible(true);
+        }
+        if (this->getChildByIDRecursive("geode-small-label-2") != nullptr) {
+            auto geodeLabel = typeinfo_cast<CCLabelBMFont*>(this->getChildByIDRecursive("geode-small-label-2"));
+            geodeLabel->setFntFile("utFont.fnt"_spr);
+            geodeLabel->setVisible(true);
+        }
+    }
+};
+
