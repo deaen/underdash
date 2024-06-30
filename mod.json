@@ -21,10 +21,9 @@
 	],
 	"resources": {
 		"files": [
-			"resources/*"
-		],
-		"sprites": [
-            "resources/*.png"
-        ]
+			"resources/*.ogg",
+			"resources/*.fnt",
+			"resources/*.png"
+		]
 	}
 }

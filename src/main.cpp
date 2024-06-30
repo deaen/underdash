@@ -35,7 +35,7 @@ class $modify(MyMenuLayer, MenuLayer) {
         CCObject* obj;
         CCARRAY_FOREACH(this -> getChildren(), obj) {
             auto item = typeinfo_cast<CCNode*>(obj);
-            if (item != nullptr) item->setVisible(false);
+            if (item != nullptr && item -> getID() != "FLAlertLayer") item->setVisible(false);
         }
         if (this->getChildByID("UtMenuBackground"_spr) != nullptr) this->getChildByID("UtMenuBackground"_spr)->setVisible(true);
         if (this->getChildByID("ut-item-menu"_spr) != nullptr) this->getChildByID("ut-item-menu"_spr)->setVisible(true);
