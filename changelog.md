@@ -1,3 +1,8 @@
+# v1.2.0
+- The menu is now customizable! pick which buttons appear in the top menu, including shortcuts to other menus!
+- Menu buttons are now accurate to how they work/look in UT!
+- tweaks and bugfixes!
+
 # v1.1.2
 - Added an option to turn off the custom menu theme
 

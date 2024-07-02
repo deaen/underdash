@@ -8,7 +8,7 @@
 	},
 	"id": "deaen.underdash",
 	"name": "underdash",
-	"version": "v1.1.2",
+	"version": "v1.2.0",
 	"developer": "deaen",
 	"description": "make the GD menu look straight outta undertale",
 	"links": {
@@ -28,73 +28,162 @@
 		]
 	},
 	"settings": {
+		"icon-section": {
+            "name": "Menu Icons",
+            "type": "custom"
+        },
 		"activeIcon": {
 			"name": "Only show active Icon",
 			"description": "Whether to only show your selected Icon in the menu (Not compatible with the other options)",
 			"type": "bool",
-            "default": true
+			"default": true
 		},
 		"iconCube": {
 			"name": "Show cube",
 			"description": "Whether to add your cube to the menu icons.",
 			"type": "bool",
-            "default": false
+			"default": false
 		},
 		"iconShip": {
 			"name": "Show ship",
 			"description": "Whether to add your ship to the menu icons.",
 			"type": "bool",
-            "default": false
-		},"iconBall": {
+			"default": false
+		},
+		"iconBall": {
 			"name": "Show ball",
 			"description": "Whether to add your ball to the menu icons.",
 			"type": "bool",
-            "default": false
-		},"iconUfo": {
-			"name": "Show ufo",
+			"default": false
+		},
+		"iconUfo": {
+			"name": "Show UFO",
 			"description": "Whether to add your ufo to the menu icons.",
 			"type": "bool",
-            "default": false
-		},"iconWave": {
+			"default": false
+		},
+		"iconWave": {
 			"name": "Show wave",
 			"description": "Whether to add your wave to the menu icons.",
 			"type": "bool",
-            "default": false
-		},"iconRobot": {
+			"default": false
+		},
+		"iconRobot": {
 			"name": "Show robot",
 			"description": "Whether to add your robot to the menu icons.",
 			"type": "bool",
-            "default": false
-		},"iconSpider": {
+			"default": false
+		},
+		"iconSpider": {
 			"name": "Show spider",
 			"description": "Whether to add your spider to the menu icons.",
 			"type": "bool",
-            "default": false
+			"default": false
 		},
 		"iconSwing": {
 			"name": "Show swing",
 			"description": "Whether to add your swing to the menu icons.",
 			"type": "bool",
-            "default": false
+			"default": false
 		},
 		"iconJetpack": {
 			"name": "Show jetpack",
 			"description": "Whether to add your jetpack to the menu icons.",
 			"type": "bool",
-            "default": false
+			"default": false
 		},
-        "loadingBar": {
-            "name": "Show loading bar",
-            "description": "Whether to show the loading bar in the loading screen or not.",
-            "type": "bool",
-            "default": false
+		"menu-section": {
+            "name": "Menu Buttons",
+            "type": "custom"
         },
+		"Profile": {
+			"name": "Add a profile button",
+			"description": "Whether to show the profile button in the main menu.",
+			"type": "bool",
+			"default": true
+		},
+		"Geode": {
+			"name": "Add a geode button",
+			"description": "Whether to show the geode button in the main menu.",
+			"type": "bool",
+			"default": true
+		},
+		"Globed": {
+			"name": "Add a globed button",
+			"description": "Whether to show the globed button in the main menu (if globed is installed).",
+			"type": "bool",
+			"default": true
+		},
+		"Achievements": {
+			"name": "Add an achievements button",
+			"description": "Whether to show the achievements button in the main menu.",
+			"type": "bool",
+			"default": false
+		},
+		"Stats": {
+			"name": "Add a stats button",
+			"description": "Whether to show the stats button in the main menu.",
+			"type": "bool",
+			"default": false
+		},
+		"Search": {
+			"name": "Add a level search button",
+			"description": "Whether to show a shortcut to the level search menu in the main menu.",
+			"type": "bool",
+			"default": false
+		},
+		"Saved": {
+			"name": "Add a saved levels button",
+			"description": "Whether to show a shortcut to your saved levels in the main menu.",
+			"type": "bool",
+			"default": false
+		},
+		"Create": {
+			"name": "Add a created levels button",
+			"description": "Whether to show a shortcut to your created levels in the main menu.",
+			"type": "bool",
+			"default": false
+		},
+		"Featured": {
+			"name": "Add a featured levels button",
+			"description": "Whether to show a shortcut to the featured menu in the main menu.",
+			"type": "bool",
+			"default": false
+		},
+		"Daily": {
+			"name": "Add a daily level button",
+			"description": "Whether to show a shortcut to the daily level in the main menu.",
+			"type": "bool",
+			"default": false
+		},
+		"Weekly": {
+			"name": "Add a weekly level button",
+			"description": "Whether to show a shortcut to the weekly level in the main menu.",
+			"type": "bool",
+			"default": false
+		},
+		"Chests": {
+			"name": "Add a daily chest button",
+			"description": "Whether to show the daily chest button in the main menu.",
+			"type": "bool",
+			"default": true
+		},
+		"other-section": {
+            "name": "Other",
+            "type": "custom"
+        },
+		"loadingBar": {
+			"name": "Show loading bar",
+			"description": "Whether to show the loading bar in the loading screen.",
+			"type": "bool",
+			"default": false
+		},
 		"utMusic": {
-            "name": "Replace menu music",
-            "description": "Whether to play a custom undertale menu loop or not.",
-            "type": "bool",
-            "default": true
-        }
+			"name": "Replace menu music",
+			"description": "Whether to play a custom undertale menu loop.",
+			"type": "bool",
+			"default": true
+		}
 	},
 	"repository": "https://github.com/deaen/underdash"
 }
