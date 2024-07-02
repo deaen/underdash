@@ -8,7 +8,7 @@
 	},
 	"id": "deaen.underdash",
 	"name": "underdash",
-	"version": "v1.1.1",
+	"version": "v1.1.2",
 	"developer": "deaen",
 	"description": "make the GD menu look straight outta undertale",
 	"links": {
@@ -88,7 +88,13 @@
             "description": "Whether to show the loading bar in the loading screen or not.",
             "type": "bool",
             "default": false
+        },
+		"utMusic": {
+            "name": "Replace menu music",
+            "description": "Whether to play a custom undertale menu loop or not.",
+            "type": "bool",
+            "default": true
         }
-
-	}
+	},
+	"repository": "https://github.com/deaen/underdash"
 }

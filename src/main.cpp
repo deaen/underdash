@@ -3,6 +3,7 @@
 #include <Geode/modify/GameManager.hpp>
 #include <Geode/modify/LoadingLayer.hpp>
 #include "ui/utMenuBackground.hpp"
+#include <Geode/loader/SettingEvent.hpp>
 using namespace geode::prelude;
 
 bool showUtMenu = true;
@@ -16,7 +17,6 @@ class $modify(MyMenuLayer, MenuLayer) {
 
         createUtMenu();
         playSfx = true;
-        
         return true;
     }
 
@@ -34,7 +34,7 @@ class $modify(MyMenuLayer, MenuLayer) {
         createItemMenu();
     }
 
-    void onShowUtMenu(CCObject * = nullptr) {
+    void onShowUtMenu(CCObject* = nullptr) {
         CCObject* obj;
         CCARRAY_FOREACH(this -> getChildren(), obj) {
             auto item = typeinfo_cast<CCNode*>(obj);
@@ -45,7 +45,7 @@ class $modify(MyMenuLayer, MenuLayer) {
         if (this->getChildByID("ut-extra-menu"_spr) != nullptr) this->getChildByID("ut-extra-menu"_spr)->setVisible(true);
     }
 
-    void onShowClassicMenu(CCObject * = nullptr) {
+    void onShowClassicMenu(CCObject* = nullptr) {
         CCObject* obj;
         CCARRAY_FOREACH(this -> getChildren(), obj) {
             auto item = typeinfo_cast<CCNode*>(obj);
@@ -137,12 +137,28 @@ class $modify(MyMenuLayer, MenuLayer) {
 
 class $modify(GameManager) {
     void fadeInMenuMusic() {
-        FMODAudioEngine::sharedEngine()->playMusic("menu.ogg"_spr, true, 0.0f, 0);
+        if (Mod::get()->getSettingValue<bool>("utMusic")) {
+            FMODAudioEngine::sharedEngine()->playMusic("menu.ogg"_spr, true, 0.0f, 0);
+        }
+        else {
+            GameManager::fadeInMenuMusic();
+        }
     }
     void playMenuMusic() {
-        FMODAudioEngine::sharedEngine()->playMusic("menu.ogg"_spr, true, 0.0f, 0);
+        if (Mod::get()->getSettingValue<bool>("utMusic")) {
+            FMODAudioEngine::sharedEngine()->playMusic("menu.ogg"_spr, true, 0.0f, 0);
+        }
+        else {
+            GameManager::playMenuMusic();
+        }
     }
 };
+
+$execute {
+    listenForSettingChanges("utMusic", +[](bool value) {
+        GameManager::sharedState() -> fadeInMenuMusic();
+    });
+}
 
 class $modify(LoadingLayer) {
 
