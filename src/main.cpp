@@ -149,7 +149,7 @@ class $modify(GameManager) {
             FMODAudioEngine::sharedEngine()->playMusic("menu.ogg"_spr, true, 0.0f, 0);
         }
         else {
-            GameManager::playMenuMusic();
+            GameManager::fadeInMenuMusic();
         }
     }
 };
