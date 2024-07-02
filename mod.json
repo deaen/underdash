@@ -134,31 +134,31 @@
 		},
 		"Saved": {
 			"name": "Add a saved levels button",
-			"description": "Whether to show a shortcut to your saved levels in the main menu.",
+			"description": "Whether to show a shortcut to your saved levels in the main menu. <cr>(not implemented on macOS yet)</c>",
 			"type": "bool",
 			"default": false
 		},
 		"Create": {
 			"name": "Add a created levels button",
-			"description": "Whether to show a shortcut to your created levels in the main menu.",
+			"description": "Whether to show a shortcut to your created levels in the main menu. <cr>(not implemented on macOS yet)</c>",
 			"type": "bool",
 			"default": false
 		},
 		"Featured": {
 			"name": "Add a featured levels button",
-			"description": "Whether to show a shortcut to the featured menu in the main menu.",
+			"description": "Whether to show a shortcut to the featured menu in the main menu. <cr>(not implemented on macOS yet)</c>",
 			"type": "bool",
 			"default": false
 		},
 		"Daily": {
 			"name": "Add a daily level button",
-			"description": "Whether to show a shortcut to the daily level in the main menu.",
+			"description": "Whether to show a shortcut to the daily level in the main menu. <cr>(not implemented on macOS yet)</c>",
 			"type": "bool",
 			"default": false
 		},
 		"Weekly": {
 			"name": "Add a weekly level button",
-			"description": "Whether to show a shortcut to the weekly level in the main menu.",
+			"description": "Whether to show a shortcut to the weekly level in the main menu. <cr>(not implemented on macOS yet)</c>",
 			"type": "bool",
 			"default": false
 		},

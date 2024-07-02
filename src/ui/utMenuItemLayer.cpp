@@ -83,11 +83,11 @@ CCMenu* utMenuItemLayer::createExtraMenu(CCNode* target) {
     }
     if (Mod::get()->getSettingValue<bool>("Achievements")) utButton::create("Achievements", target, menu_selector(MenuLayer::onAchievements), "ut-achievements-button"_spr, menu);
     if (Mod::get()->getSettingValue<bool>("Stats")) utButton::create("Stats", target, menu_selector(MenuLayer::onStats), "ut-stats-button"_spr, menu);
+    #ifndef GEODE_IS_MACOS
     if (Mod::get()->getSettingValue<bool>("Search")) utButton::create("Search", target, menu_selector(CreatorLayer::onOnlineLevels), "ut-search-button"_spr, menu);
     if (Mod::get()->getSettingValue<bool>("Saved")) utButton::create("Saved", target, menu_selector(CreatorLayer::onSavedLevels), "ut-saved-button"_spr, menu);
     if (Mod::get()->getSettingValue<bool>("Create")) utButton::create("Create", target, menu_selector(CreatorLayer::onMyLevels), "ut-create-button"_spr, menu);
     if (Mod::get()->getSettingValue<bool>("Featured")) utButton::create("Featured", target, menu_selector(CreatorLayer::onFeaturedLevels), "ut-featured-button"_spr, menu);
-    #ifndef GEODE_IS_MACOS
     if (Mod::get()->getSettingValue<bool>("Daily")) utButton::create("Daily", target, menu_selector(CreatorLayer::onDailyLevel), "ut-daily-button"_spr, menu);
     if (Mod::get()->getSettingValue<bool>("Weekly")) utButton::create("Weekly", target, menu_selector(CreatorLayer::onWeeklyLevel), "ut-weekly-button"_spr, menu);
     #endif
