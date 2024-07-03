@@ -58,7 +58,7 @@ class $modify(MyMenuLayer, MenuLayer) {
 
 class $modify(GameManager) {
     void fadeInMenuMusic() {
-        if (Mod::get()->getSettingValue<bool>("utMusic")) {
+        if (Mod::get()->getSettingValue<bool>("utMusic") && GameManager::sharedState() -> getGameVariable("0122") == false) {
             FMODAudioEngine::sharedEngine()->playMusic("menu.ogg"_spr, true, 0.0f, 0);
         }
         else {
@@ -66,11 +66,15 @@ class $modify(GameManager) {
         }
     }
     void playMenuMusic() {
-        if (Mod::get()->getSettingValue<bool>("utMusic")) {
+        if (Mod::get()->getSettingValue<bool>("utMusic")&& GameManager::sharedState() -> getGameVariable("0122") == false) {
             FMODAudioEngine::sharedEngine()->playMusic("menu.ogg"_spr, true, 0.0f, 0);
         }
         else {
+            #ifdef GEODE_IS_MACOS
             GameManager::fadeInMenuMusic();
+            #else
+             GameManager::playMenuMusic();
+            #endif
         }
     }
 };

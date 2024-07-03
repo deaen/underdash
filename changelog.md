@@ -1,3 +1,6 @@
+# v1.2.1
+- fixed the custom music not respecting the menu music toggle
+
 # v1.2.0
 - The menu is now customizable! pick which buttons appear in the top menu, including shortcuts to other menus!
 - Menu buttons are now accurate to how they work/look in UT!
