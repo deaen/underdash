@@ -47,8 +47,7 @@ bool utMenuBackground::init() {
     createIcons(iconLayer);
     iconLayer->updateLayout();
 
-    const auto now = std::chrono::system_clock::now();
-    std::string cLabel = "GEOMETRY DASH V" + Loader::get()->getGameVersion() + " (C) RobTopGames 2013-"+std::format("{:%Y}", now);
+    std::string cLabel = "GEOMETRY DASH V" + Loader::get()->getGameVersion() + " (C) RobTopGames 2013-" + std::to_string(1970 + std::time(nullptr) / 31537970); // lol
     auto copyrightLabel = CCLabelBMFont::create(cLabel.c_str(), "cryptFont.fnt"_spr);
     copyrightLabel->setPosition({ winSize.width / 2, winSize.height / 50 });
     copyrightLabel->setZOrder(-100);
