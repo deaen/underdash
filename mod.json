@@ -1,23 +1,28 @@
 {
-	"geode": "3.1.1",
+	"geode": "4.10.0",
 	"gd": {
-		"win": "2.206",
-		"android": "2.206",
-		"mac": "2.206",
-		"ios": "2.206"
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
 	},
 	"id": "deaen.underdash",
 	"name": "underdash",
-	"version": "v1.2.1",
+	"version": "v1.3.0",
 	"developer": "deaen",
-	"description": "make the GD menu look straight outta undertale",
+	"description": "Make ur GD menu look straight outta undertale",
 	"links": {
 		"source": "https://github.com/deaen/underdash",
 		"homepage": "https://x.com/ddeaen"
 	},
+	"issues": {
+		"info": "Please report issues on the GitHub repository! Or you can just tag/DM me on twitter...",
+		"url": "https://github.com/deaen/underdash/issues"
+	},
 	"tags": [
 		"interface",
-		"offline"
+		"offline",
+		"music"
 	],
 	"early-load": true,
 	"resources": {
@@ -28,150 +33,173 @@
 		]
 	},
 	"settings": {
-		"icon-section": {
-            "name": "Menu Icons",
-            "type": "custom"
-        },
-		"activeIcon": {
-			"name": "Only show active Icon",
-			"description": "Whether to only show your selected Icon in the menu (Not compatible with the other options)",
-			"type": "bool",
-			"default": true
-		},
-		"iconCube": {
-			"name": "Show cube",
-			"description": "Whether to add your cube to the menu icons.",
-			"type": "bool",
-			"default": false
-		},
-		"iconShip": {
-			"name": "Show ship",
-			"description": "Whether to add your ship to the menu icons.",
-			"type": "bool",
-			"default": false
-		},
-		"iconBall": {
-			"name": "Show ball",
-			"description": "Whether to add your ball to the menu icons.",
-			"type": "bool",
-			"default": false
-		},
-		"iconUfo": {
-			"name": "Show UFO",
-			"description": "Whether to add your ufo to the menu icons.",
-			"type": "bool",
-			"default": false
-		},
-		"iconWave": {
-			"name": "Show wave",
-			"description": "Whether to add your wave to the menu icons.",
-			"type": "bool",
-			"default": false
-		},
-		"iconRobot": {
-			"name": "Show robot",
-			"description": "Whether to add your robot to the menu icons.",
-			"type": "bool",
-			"default": false
-		},
-		"iconSpider": {
-			"name": "Show spider",
-			"description": "Whether to add your spider to the menu icons.",
-			"type": "bool",
-			"default": false
-		},
-		"iconSwing": {
-			"name": "Show swing",
-			"description": "Whether to add your swing to the menu icons.",
-			"type": "bool",
-			"default": false
-		},
-		"iconJetpack": {
-			"name": "Show jetpack",
-			"description": "Whether to add your jetpack to the menu icons.",
-			"type": "bool",
-			"default": false
-		},
 		"menu-section": {
-            "name": "Menu Buttons",
-            "type": "custom"
-        },
-		"Profile": {
-			"name": "Add a profile button",
+			"name": "Buttons",
+			"description": "Toggle which buttons show up",
+			"type": "custom:section-title"
+		},
+		"profile": {
+			"name": "Profile Button",
 			"description": "Whether to show the profile button in the main menu.",
 			"type": "bool",
 			"default": true
 		},
-		"Geode": {
-			"name": "Add a geode button",
+		"geode": {
+			"name": "Geode Button",
 			"description": "Whether to show the geode button in the main menu.",
 			"type": "bool",
 			"default": true
 		},
-		"Globed": {
-			"name": "Add a globed button",
+		"globed": {
+			"name": "Globed button",
 			"description": "Whether to show the globed button in the main menu (if globed is installed).",
 			"type": "bool",
 			"default": true
 		},
-		"Achievements": {
-			"name": "Add an achievements button",
-			"description": "Whether to show the achievements button in the main menu.",
-			"type": "bool",
-			"default": false
-		},
-		"Stats": {
-			"name": "Add a stats button",
-			"description": "Whether to show the stats button in the main menu.",
-			"type": "bool",
-			"default": false
-		},
-		"Search": {
-			"name": "Add a level search button",
-			"description": "Whether to show a shortcut to the level search menu in the main menu.",
-			"type": "bool",
-			"default": false
-		},
-		"Saved": {
-			"name": "Add a saved levels button",
-			"description": "Whether to show a shortcut to your saved levels in the main menu. <cr>(not implemented on macOS yet)</c>",
-			"type": "bool",
-			"default": false
-		},
-		"Create": {
-			"name": "Add a created levels button",
-			"description": "Whether to show a shortcut to your created levels in the main menu. <cr>(not implemented on macOS yet)</c>",
-			"type": "bool",
-			"default": false
-		},
-		"Featured": {
-			"name": "Add a featured levels button",
-			"description": "Whether to show a shortcut to the featured menu in the main menu. <cr>(not implemented on macOS yet)</c>",
-			"type": "bool",
-			"default": false
-		},
-		"Daily": {
-			"name": "Add a daily level button",
-			"description": "Whether to show a shortcut to the daily level in the main menu. <cr>(not implemented on macOS yet)</c>",
-			"type": "bool",
-			"default": false
-		},
-		"Weekly": {
-			"name": "Add a weekly level button",
-			"description": "Whether to show a shortcut to the weekly level in the main menu. <cr>(not implemented on macOS yet)</c>",
-			"type": "bool",
-			"default": false
-		},
-		"Chests": {
-			"name": "Add a daily chest button",
+		"chests": {
+			"name": "Daily chests button",
 			"description": "Whether to show the daily chest button in the main menu.",
 			"type": "bool",
 			"default": true
 		},
+		"quit": {
+			"name": "Quit button",
+			"description": "Whether to show the quit button in the main menu.",
+			"type": "bool",
+			"default": true
+		},
+		"restart": {
+			"name": "Restart button",
+			"description": "Whether to add a restart button in the main menu.",
+			"type": "bool",
+			"default": false
+		},
+		"achievements": {
+			"name": "Achievements button",
+			"description": "Whether to show the achievements button in the main menu.",
+			"type": "bool",
+			"default": false
+		},
+		"stats": {
+			"name": "Stats button",
+			"description": "Whether to show the stats button in the main menu.",
+			"type": "bool",
+			"default": false
+		},
+		"search": {
+			"name": "Search button",
+			"description": "Whether to show a shortcut to the level search menu in the main menu.",
+			"type": "bool",
+			"default": false
+		},
+		"saved": {
+			"name": "Saved levels button",
+			"description": "Whether to show a shortcut to your saved levels in the main menu. <cr>(not implemented on macOS yet)</c>",
+			"type": "bool",
+			"default": false
+		},
+		"create": {
+			"name": "Created levels button",
+			"description": "Whether to show a shortcut to your created levels in the main menu. <cr>(not implemented on macOS yet)</c>",
+			"type": "bool",
+			"default": false
+		},
+		"featured": {
+			"name": "Featured levels button",
+			"description": "Whether to show a shortcut to the featured menu in the main menu. <cr>(not implemented on macOS yet)</c>",
+			"type": "bool",
+			"default": false
+		},
+		"daily": {
+			"name": "Daily level button",
+			"description": "Whether to show a shortcut to the daily level in the main menu. <cr>(not implemented on macOS yet)</c>",
+			"type": "bool",
+			"default": false
+		},
+		"weekly": {
+			"name": "Weekly level button",
+			"description": "Whether to show a shortcut to the weekly level in the main menu. <cr>(not implemented on macOS yet)</c>",
+			"type": "bool",
+			"default": false
+		},
+		"icon-section": {
+			"name": "Icons",
+			"description": "toggle which icons show up",
+			"type": "custom:section-title"
+		},
+		"activeIcon": {
+			"name": "Only active icon",
+			"description": "Whether to only show your selected icon in the menu (Not compatible with the other options)",
+			"type": "bool",
+			"default": true
+		},
+		"iconCube": {
+			"name": "Cube",
+			"description": "Whether to add your cube to the menu icons.",
+			"type": "bool",
+			"default": false,
+			"enable-if": "!activeIcon"
+		},
+		"iconShip": {
+			"name": "Ship",
+			"description": "Whether to add your ship to the menu icons.",
+			"type": "bool",
+			"default": false,
+			"enable-if": "!activeIcon"
+		},
+		"iconBall": {
+			"name": "Ball",
+			"description": "Whether to add your ball to the menu icons.",
+			"type": "bool",
+			"default": false,
+			"enable-if": "!activeIcon"
+		},
+		"iconUfo": {
+			"name": "Ufo",
+			"description": "Whether to add your ufo to the menu icons.",
+			"type": "bool",
+			"default": false,
+			"enable-if": "!activeIcon"
+		},
+		"iconWave": {
+			"name": "Wave",
+			"description": "Whether to add your wave to the menu icons.",
+			"type": "bool",
+			"default": false,
+			"enable-if": "!activeIcon"
+		},
+		"iconRobot": {
+			"name": "Robot",
+			"description": "Whether to add your robot to the menu icons.",
+			"type": "bool",
+			"default": false,
+			"enable-if": "!activeIcon"
+		},
+		"iconSpider": {
+			"name": "Spider",
+			"description": "Whether to add your spider to the menu icons.",
+			"type": "bool",
+			"default": false,
+			"enable-if": "!activeIcon"
+		},
+		"iconSwing": {
+			"name": "Swing",
+			"description": "Whether to add your swing to the menu icons.",
+			"type": "bool",
+			"default": false,
+			"enable-if": "!activeIcon"
+		},
+		"iconJetpack": {
+			"name": "Jetpack",
+			"description": "Whether to add your jetpack to the menu icons.",
+			"type": "bool",
+			"default": false,
+			"enable-if": "!activeIcon"
+		},
 		"other-section": {
-            "name": "Other",
-            "type": "custom"
-        },
+			"name": "Other",
+			"type": "custom:section-title"
+		},
 		"loadingBar": {
 			"name": "Show loading bar",
 			"description": "Whether to show the loading bar in the loading screen.",
@@ -184,6 +212,5 @@
 			"type": "bool",
 			"default": true
 		}
-	},
-	"repository": "https://github.com/deaen/underdash"
+	}
 }

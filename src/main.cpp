@@ -2,10 +2,11 @@
 #include <Geode/modify/MenuLayer.hpp>
 #include <Geode/modify/GameManager.hpp>
 #include <Geode/modify/LoadingLayer.hpp>
-#include <Geode/loader/SettingEvent.hpp>
+#include <Geode/loader/SettingV3.hpp>
+#include <Geode/loader/Mod.hpp>
 #include "ui/utMenuBackground.hpp"
 #include "ui/utMenuItemLayer.hpp"
-#include "ui/utSettingsHeader.hpp"
+#include "ui/utCustomSettings.hpp"
 using namespace geode::prelude;
 
 bool playSfx;
@@ -21,7 +22,7 @@ class $modify(MyMenuLayer, MenuLayer) {
     }
 
     void createUtMenu() {
-        // CREATE CLASSIC MENU BUTTON //
+        // CREATE CLASSIC MENU BUTTON
         auto utMenuButton = CCMenuItemSpriteExtra::create(CircleButtonSprite::createWithSprite("soul.png"_spr, 0.9f), this, menu_selector(MyMenuLayer::onShowUtMenu));
         auto menu = this->getChildByID("bottom-menu");
         menu->addChild(utMenuButton);
@@ -70,11 +71,7 @@ class $modify(GameManager) {
             FMODAudioEngine::sharedEngine()->playMusic("menu.ogg"_spr, true, 0.0f, 0);
         }
         else {
-            #ifdef GEODE_IS_MACOS
-            GameManager::fadeInMenuMusic();
-            #else
-             GameManager::playMenuMusic();
-            #endif
+            GameManager::playMenuMusic();
         }
     }
 };
@@ -133,8 +130,8 @@ class $modify(LoadingLayer) {
     }
 };
 
-$on_mod(Loaded) {
-    Mod::get()->addCustomSetting<HeaderValue>("icon-section", 0);
-    Mod::get()->addCustomSetting<HeaderValue>("menu-section", 0);
-    Mod::get()->addCustomSetting<HeaderValue>("other-section", 0);
-}
+// $on_mod(Loaded) {
+//     Mod::get()->addCustomSetting<HeaderValue>("icon-section", 0);
+//     Mod::get()->addCustomSetting<HeaderValue>("menu-section", 0);
+//     Mod::get()->addCustomSetting<HeaderValue>("other-section", 0);
+// }

@@ -1,7 +1,4 @@
-#include <Geode/Geode.hpp>
-using namespace geode::prelude;
 #include "utMenuBackground.hpp"
-
 
 utMenuBackground* utMenuBackground::create() {
     auto ret = new utMenuBackground();
@@ -50,8 +47,8 @@ bool utMenuBackground::init() {
     createIcons(iconLayer);
     iconLayer->updateLayout();
 
-
-    std::string cLabel = "GEOMETRY DASH V" + Loader::get()->getGameVersion() + " (C) RobTopGames 2013-2024";
+    const auto now = std::chrono::system_clock::now();
+    std::string cLabel = "GEOMETRY DASH V" + Loader::get()->getGameVersion() + " (C) RobTopGames 2013-"+std::format("{:%Y}", now);
     auto copyrightLabel = CCLabelBMFont::create(cLabel.c_str(), "cryptFont.fnt"_spr);
     copyrightLabel->setPosition({ winSize.width / 2, winSize.height / 50 });
     copyrightLabel->setZOrder(-100);

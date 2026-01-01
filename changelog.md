@@ -1,5 +1,9 @@
+# v1.3.0
+- Updated for GD version 2.2074 (& Geode v4.10.0)! After almost 2 years! Finally!
+- Also Added options to add "Quit" and "Restart" buttons to the menu
+
 # v1.2.1
-- fixed the custom music not respecting the menu music toggle
+- fixed the custom theme not respecting the menu music toggle
 
 # v1.2.0
 - The menu is now customizable! pick which buttons appear in the top menu, including shortcuts to other menus!
