@@ -1,3 +1,6 @@
+# v1.3.1
+- Updated for GD version 2.2081 & Geode v5
+
 # v1.3.0
 - Updated for GD version 2.2074 (& Geode v4.10.0)! After almost 2 years! Finally!
 - Also Added options to add "Quit" and "Restart" buttons to the menu

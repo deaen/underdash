@@ -94,7 +94,7 @@ public:
     }
 };
 
-SettingNodeV3 *utSettingTitle::createNode(float width)
+inline SettingNodeV3 *utSettingTitle::createNode(float width)
 {
     return utSettingTitleNode::create(
         std::static_pointer_cast<utSettingTitle>(shared_from_this()),

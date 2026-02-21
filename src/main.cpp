@@ -6,7 +6,6 @@
 #include <Geode/loader/Mod.hpp>
 #include "ui/utMenuBackground.hpp"
 #include "ui/utMenuItemLayer.hpp"
-#include "ui/utCustomSettings.hpp"
 using namespace geode::prelude;
 
 bool playSfx;
@@ -36,9 +35,7 @@ class $modify(MyMenuLayer, MenuLayer) {
     }
 
     void onShowUtMenu(CCObject * = nullptr) {
-        CCObject* obj;
-        CCARRAY_FOREACH(this -> getChildren(), obj) {
-            auto item = typeinfo_cast<CCNode*>(obj);
+        for (auto item : CCArrayExt<CCNode*>(this->getChildren())) {
             if (item != nullptr && item->getID() != "FLAlertLayer") item->setVisible(false);
         }
         if (this->getChildByID("UtMenuBackground"_spr) != nullptr) this->getChildByID("UtMenuBackground"_spr)->setVisible(true);
@@ -47,9 +44,7 @@ class $modify(MyMenuLayer, MenuLayer) {
     }
 
     void onShowClassicMenu(CCObject * = nullptr) {
-        CCObject* obj;
-        CCARRAY_FOREACH(this -> getChildren(), obj) {
-            auto item = typeinfo_cast<CCNode*>(obj);
+        for (auto item : CCArrayExt<CCNode*>(this->getChildren())) {
             if (item != nullptr) item->setVisible(true);
         }
         if (this->getChildByID("UtMenuBackground"_spr) != nullptr) this->getChildByID("UtMenuBackground"_spr)->setVisible(false);
@@ -77,7 +72,7 @@ class $modify(GameManager) {
 };
 
 $execute{
-    listenForSettingChanges("utMusic", +[](bool value) {
+    listenForSettingChanges<bool>("utMusic", +[](bool value) {
         GameManager::sharedState()->fadeInMenuMusic();
     });
 }
@@ -90,16 +85,12 @@ class $modify(LoadingLayer) {
         auto barBool = Mod::get()->getSettingValue<bool>("loadingBar");
 
         if (!barBool) {
-            CCObject* obj;
-            CCARRAY_FOREACH(this -> getChildren(), obj) {
-                auto item = typeinfo_cast<CCNode*>(obj);
+            for (auto item : CCArrayExt<CCNode*>(this->getChildren())) {
                 if (item != nullptr) item->setVisible(false);
             }
         }
         else {
-            CCObject* obj;
-            CCARRAY_FOREACH(this -> getChildren(), obj) {
-                auto item = typeinfo_cast<CCNode*>(obj);
+            for (auto item : CCArrayExt<CCNode*>(this->getChildren())) {
                 if (item != nullptr && item->getID() != "progress-slider" && item->getID() != "geode-small-label" && item->getID() != "geode-small-label-2") item->setVisible(false);
             }
         }
@@ -129,9 +120,3 @@ class $modify(LoadingLayer) {
         }
     }
 };
-
-// $on_mod(Loaded) {
-//     Mod::get()->addCustomSetting<HeaderValue>("icon-section", 0);
-//     Mod::get()->addCustomSetting<HeaderValue>("menu-section", 0);
-//     Mod::get()->addCustomSetting<HeaderValue>("other-section", 0);
-// }
