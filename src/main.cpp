@@ -6,6 +6,8 @@
 #include <Geode/loader/Mod.hpp>
 #include "ui/utMenuBackground.hpp"
 #include "ui/utMenuItemLayer.hpp"
+#include "ui/utCustomSettings.hpp"
+
 using namespace geode::prelude;
 
 bool playSfx;
