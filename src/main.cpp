@@ -19,6 +19,10 @@ class $modify(MyMenuLayer, MenuLayer) {
         }
         createUtMenu();
         playSfx = true;
+
+        if(!Mod::get()->getSettingValue<bool>("utMenuDefault"))
+            onShowClassicMenu();
+
         return true;
     }
 
@@ -122,3 +126,6 @@ class $modify(LoadingLayer) {
         }
     }
 };
+
+
+// hello deaen from the future here, what the fuck?

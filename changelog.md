@@ -1,3 +1,6 @@
+# v1.4.0
+- Added the option to show the normal GD menu instead of underdash on launch
+
 # v1.3.1
 - Updated for GD version 2.2081 & Geode v5
 
